@@ -178,11 +178,11 @@ class BotImage(Widget):
         img1 = cv2.imread('JACQUARD_DESIGN.bmp', 1)
         img = cv2.flip(img1, 0)
         # img = np.flipud(img)
-        from kivy.core.window import Window
+        #from kivy.core.window import Window
         img_height, img_width = img.shape[0], img.shape[1]
 
-        window_width = Window.width
-        window_height = Window.height
+        window_width = 800
+        window_height = 480
         if JACQUARD_PICK < img_height:
             if img_height - JACQUARD_PICK - JACQUARD_TOP_BOT_HEIGHT < 0:
                 bot_image_start = 0
