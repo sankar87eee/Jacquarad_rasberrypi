@@ -20,7 +20,9 @@ import threading
 from kivy.clock import Clock
 from kivy.graphics.texture import Texture
 from kivy.uix.widget import Widget
-
+from kivy.config import Config
+Config.set('graphics', 'width', '800')
+Config.set('graphics', 'height', '480')
 
 aio = Client('sankar87eee', 'aio_BcjL967yMztvxoZkHT1i5hdRrdsz')
 
@@ -178,11 +180,10 @@ class BotImage(Widget):
         img1 = cv2.imread('JACQUARD_DESIGN.bmp', 1)
         img = cv2.flip(img1, 0)
         # img = np.flipud(img)
-        #from kivy.core.window import Window
+        from kivy.core.window import Window
         img_height, img_width = img.shape[0], img.shape[1]
-
-        window_width = 800
-        window_height = 480
+        window_width = Window.width
+        window_height = Window.height
         if JACQUARD_PICK < img_height:
             if img_height - JACQUARD_PICK - JACQUARD_TOP_BOT_HEIGHT < 0:
                 bot_image_start = 0
@@ -222,11 +223,8 @@ class TopImage(Widget):
         img1 = cv2.imread('JACQUARD_DESIGN.bmp', 1)
         img = cv2.flip(img1, 0)
         #img = np.flipud(img)
-
         from kivy.core.window import Window
-
         img_height, img_width = img.shape[0], img.shape[1]
-
         window_width = Window.width
         window_height = Window.height
 
@@ -416,6 +414,9 @@ class Jacquaredgui(App):
             self.root.ids.invert.text = 'INVERT ON'
             self.root.ids.invert.background_color= (0.4, 1, 0.4, 1)
 
+    def on_touch_down(self):
+        pass
+    
     def on_press_reverse_row(self):
 
         global JACQUARD_SETTING
