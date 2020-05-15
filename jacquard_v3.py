@@ -22,7 +22,7 @@ from kivy.graphics.texture import Texture
 from kivy.uix.widget import Widget
 from kivy.config import Config
 Config.set('graphics', 'width', '800')
-Config.set('graphics', 'height', '480')
+Config.set('graphics', 'height', '450')
 
 aio = Client('sankar87eee', 'aio_BcjL967yMztvxoZkHT1i5hdRrdsz')
 
@@ -195,8 +195,8 @@ class BotImage(Widget):
             bot_texture = Texture.create(size=(bot.shape[1], bot.shape[0]), colorfmt='rgb')
             bot_texture.blit_buffer(bot_img, colorfmt='rgb', bufferfmt='ubyte', size=(bot.shape[1], bot.shape[0]))
             self.bot_image = bot_texture
-            self.bot_texture_size = (bot.shape[1]*window_width/1040*0.9,bot.shape[0]*window_height/624*0.9)
-            self.bot_texture_pos = (self.pos[0], 259-self.bot_texture_size[1]+self.pos[1])
+            self.bot_texture_size = (bot.shape[1]*window_width/800*1,bot.shape[0]*window_height/800*1)
+            self.bot_texture_pos = (self.pos[0], 240-self.bot_texture_size[1]+self.pos[1])
 
             print('PPPPPPPPPPPPPOOOOOOOOOOSSSSSSSSSSSS', self.height,self.size,'texture size',self.bot_texture_size,'type',type(self.pos[0]))
         else:
@@ -234,7 +234,7 @@ class TopImage(Widget):
             top_texture = Texture.create(size=(top.shape[1], top.shape[0]), colorfmt='rgb')
             top_texture.blit_buffer(top_img, colorfmt='rgb', bufferfmt='ubyte',size=(top.shape[1], top.shape[0]))
             self.top_image = top_texture
-            self.top_texture_size = (top.shape[1]*window_width/1040*0.9, top.shape[0]*window_height/624*0.9)
+            self.top_texture_size = (top.shape[1]*window_width/800*1, top.shape[0]*window_height/480*1)
         else:
             JACQUARD_PICK =0
             App.get_running_app().root.ids.pick_text.text = str(JACQUARD_PICK)  # this is access root id from other class

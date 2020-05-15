@@ -1,4 +1,4 @@
-#:import MyTransition kivy.uix.screenmanager.SlideTransition
+#:import MyTransition kivy.uix.screenmanager.NoTransition
 #:kivy 1.11.1
 #:import Factory kivy.factory.Factory
 
@@ -33,1004 +33,1012 @@
 
 <Jacquared>:
     size:root.size
-    ScreenManager:
-        transition: MyTransition()
-        size_hint: 1, 0.87
-        pos_hint:{'top':1}
-        id: _screen_manager
-
-        Screen:
-            id:_home_screen
-            name: 'home_screen'
-            FloatLayout:
-                canvas.before:
-                    Color:
-                        rgb: 1,1,1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
-            canvas_boxlayout:
-                id:status_bar
-                canvas.before:
-                    Color:
-                        rgb: self.canvas_status
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                background_color: 0.2,1,0.2
-                orientation : 'vertical'
-                padding:0,0,0,0
-                size_hint:1,0.2
-                pos_hint:{'top': 1, 'center_x':0.5}
-
-                Label:
-                    id: status_label
-                    text:"STATUS: OFF"
-                    bold:True
-                    font_size: 24
-                    background_color: 0, 0, 1, 1
-            InfoHome:
-                id: infohome
-                orientation:'vertical'
-                pos_hint:{'top': 0.8, 'x':0}
-                size_hint:1,0.8
-                spacing:1
-                pos_hint:{'x':0,'y':0}
-
-######## Total Pick setting ############
-                FloatLayout: # home screen setting repeat
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.01,'top':0.98}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.4,0.4
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Total PICK'
-                        Label:
-                            id :total_pick
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-########   current Pick setting ############
-                FloatLayout: # home screen PICK
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.35,'top':0.98}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.6,0.6
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Current PICK'
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-########  Total repeat setting ############
-                FloatLayout: # home screen setting repeat
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.01,'top':0.78}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.4,0.4
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Total Repeat'
-                        Label:
-                            id:total_repeat
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-
-########  Current repeat setting ############
-
-                FloatLayout: # home screen PICK
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.35,'top':0.78}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.6,0.6
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Current Repeat'
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-########         RPM  &                            ##############
-                FloatLayout: # home screen RPM
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.01,'top':0.58}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.4,0.4
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'RPM'
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-
-########  Unknown ############
-
-                FloatLayout: # home screen PICK
-                    size_hint:0.3,0.15
-                    pos_hint:{'x':0.35,'top':0.58}
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.6,0.6
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Unknown'
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'000'
-########     home screen files              ##############
+    canvas.before:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        size_hint:0.8,1
+        pos_hint:{'right':0.98}
+        ScreenManager:
+            transition: MyTransition()
+            size_hint: 1, 1
+            pos_hint:{'top':1,'x':0}
+            id: _screen_manager
+            Screen:
+                id:_home_screen
+                name: 'home_screen'
                 FloatLayout:
-                    size_hint:0.69,0.15
-                    pos_hint:{'x':0.01,'y':0.01}
                     canvas.before:
                         Color:
-                            rgb: 0.2,0.6,0.6
+                            rgb: 1,1,1
                         Rectangle:
                             pos: self.pos
                             size: self.size
-                    BoxLayout
-                        orientation:"vertical"
-                        size_hint:0.7,1
-                        pos_hint:{'x':0.1,'top':1}
-                        Label:
-                            pos_hint:{'x':0.1,'center_y':0.5}
-                            font_size:18
-                            text:'Unknown'
 
-            BoxLayout:
-                orientation: 'vertical'
-                pos_hint:{'top': 0.8, 'right':1}
-                size_hint:0.3,0.8
-                canvas.before:
-                    Color:
-                        rgb: 0.9,0.9,0.9
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                spacing:10
-                padding:20,20,20,20
-                id:start_stop
+                canvas_boxlayout:
+                    id:status_bar
+                    canvas.before:
+                        Color:
+                            rgb: self.canvas_status
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    background_color: 0.2,1,0.2
+                    orientation : 'vertical'
+                    padding:0,0,0,0
+                    size_hint:1,0.2
+                    pos_hint:{'top': 1, 'center_x':0.5}
 
-                Button:
+                    Label:
+                        id: status_label
+                        text:"STATUS: OFF"
+                        bold:True
+                        font_size: 24
+                        background_color: 0, 0, 1, 1
+                InfoHome:
+                    id: infohome
+                    orientation:'vertical'
+                    pos_hint:{'top': 0.8, 'x':0}
+                    size_hint:1,0.8
+                    spacing:1
+                    pos_hint:{'x':0,'y':0}
+
+    ######## Total Pick setting ############
+                    FloatLayout: # home screen setting repeat
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.01,'top':0.98}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.4,0.4
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Total PICK'
+                            Label:
+                                id :total_pick
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+    ########   current Pick setting ############
+                    FloatLayout: # home screen PICK
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.35,'top':0.98}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.6,0.6
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Current PICK'
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+    ########  Total repeat setting ############
+                    FloatLayout: # home screen setting repeat
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.01,'top':0.78}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.4,0.4
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Total Repeat'
+                            Label:
+                                id:total_repeat
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+
+    ########  Current repeat setting ############
+
+                    FloatLayout: # home screen PICK
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.35,'top':0.78}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.6,0.6
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Current Repeat'
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+    ########         RPM  &                            ##############
+                    FloatLayout: # home screen RPM
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.01,'top':0.58}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.4,0.4
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'RPM'
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+
+    ########  Unknown ############
+
+                    FloatLayout: # home screen PICK
+                        size_hint:0.3,0.15
+                        pos_hint:{'x':0.35,'top':0.58}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.6,0.6
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Unknown'
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'000'
+    ########     home screen files              ##############
+                    FloatLayout:
+                        size_hint:0.69,0.15
+                        pos_hint:{'x':0.01,'y':0.01}
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.6,0.6
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        BoxLayout
+                            orientation:"vertical"
+                            size_hint:0.7,1
+                            pos_hint:{'x':0.1,'top':1}
+                            Label:
+                                pos_hint:{'x':0.1,'center_y':0.5}
+                                font_size:18
+                                text:'Unknown'
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    pos_hint:{'top': 0.8, 'right':1}
+                    size_hint:0.3,0.8
                     canvas.before:
                         Color:
                             rgb: 0.9,0.9,0.9
                         Rectangle:
                             pos: self.pos
                             size: self.size
-                    id: start_button
-                    text:'START'
-                    background_color: (0.5, 1, 0.5, 1)
-                    font_size: 30
-                    size_hint:1,1
-                    on_press :
-                        app.on_press_start(root.ids.status_bar, status_label)
-                Button:
-                    id: start_button
-                    text:'STOP'
-                    background_color: (1, 0.5, 0.5, 1)
-                    size_hint:1,1
-                    font_size: 30
-                    on_press :
-                        app.on_press_stop(root.ids.status_bar, status_label)
-
-
-########################## setting Screen ###################3
-        Screen:
-            id:_meno_screen
-            name:'meno_screen'
-            FloatLayout:
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint:1,1
-                pos_hint:{'top':1,'x':0}
-                FloatLayout:
-                    canvas.before:
-                        Color:
-                            rgb: 1, 1, 1
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    size_hint:0.3,1
-                    pos_hint:{'top':1,'x':0.025}
-                    orientation: 'vertical'
-                    spacing:50
-                    padding:20,50,20,50
-                    Label:
-                        pos_hint:{'top':1,'center_x':0.5}
-                        size_hint: 1,0.1
-                        font_size: 16
-                        text:'Mode Setting'
-                        color: 0.3,0.3,0,1
-                    Button:
-                        id: body_border_file
-                        pos_hint:{'center_y':0.7,'center_x':0.5}
-                        size_hint: 1,0.3
-                        font_size: 20
-                        bold: True
-                        color: 0.8,0.8,0.8,1
-                        height: 10
-                        background_color: (1, 0.4, 0.4, 1)
-                        text:'         MODE - I   \n( Body & Border File)'
-                        on_press: app.on_press_bodyborderfile()
-                        on_release:
-                    Button:
-                        id: merge_file
-                        pos_hint:{'center_y':0.25,'center_x':0.5}
-                        font_size: 20
-                        bold: True
-                        color: 0.8,0.8,0.8,1
-                        size_hint: 1,0.3
-                        background_color: (1, 0.4, 0.4, 1)
-                        text:'      MODE - II   \n( MERGE File )'
-                        on_press: app.on_press_mergefile()
-                        on_release:
-
-
-                FloatLayout:
-                    canvas.before:
-                        Color:
-                            rgb: 1, 1, 1
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    size_hint:0.2,1
-                    pos_hint:{'top':1,'x':0.775}
-                    spacing:50
-                    padding:20,50,20,50
-                    Label:
-                        pos_hint:{'top':1,'center_x':0.5}
-                        size_hint: 1,0.1
-                        font_size: 16
-                        text:'Special Setting'
-                        color: 0.3,0.3,0,1
-                    Button:
-                        id: invert
-                        pos_hint:{'center_y':0.75,'center_x':0.5}
-                        size_hint: 1,0.25
-                        font_size: 16
-                        bold: True
-                        color: 0.8,0.8,0.8,1
-                        height: 10
-                        background_color: (1, 0.4, 0.4, 1)
-                        text:'INVERT OFF'
-                        on_press: app.on_press_invert()
-                        on_release:
-                    Button:
-                        id: reverse_row
-                        pos_hint:{'center_y':0.45,'center_x':0.5}
-                        size_hint: 1,0.25
-                        font_size: 16
-                        bold: True
-                        color: 0.8,0.8,0.8,1
-                        height: 10
-                        background_color: (1, 0.4, 0.4, 1)
-                        text:'REVERSE ROW OFF'
-                        on_press: app.on_press_reverse_row()
-                        on_release:
-                    Button:
-                        id: reverse_column
-                        pos_hint:{'center_y':0.15,'center_x':0.5}
-                        size_hint: 1,0.25
-                        font_size: 16
-                        bold: True
-                        color: 0.8,0.8,0.8,1
-                        height: 10
-                        background_color: (1, 0.4, 0.4, 1)
-                        text:'REVERSE ROW OFF'
-                        on_press: app.on_press_reverse_column()
-                        on_release:
-                FloatLayout:
-                    canvas.before:
-                        Color:
-                            rgb: 1, 1, 1
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    size_hint:0.4,1
-                    pos_hint:{'top':1,'x':0.35}
-                    spacing:50
-                    padding:20,50,20,50
+                    spacing:10
+                    padding:20,20,20,20
+                    id:start_stop
 
                     Button:
-                        text:'Update'
-                        color:0.8,1,1,1
-                        font_size:30
-                        size_hint:0.7,0.3
-                        pos_hint:{'y':0.1,'center_x':0.5}
-                        background_color: (0.3, 0.8, 0.8, 1.0)
-                        on_press: app.update_settings()
-
-                    FloatLayout:
-                        size_hint: 1,0.4
-                        pos_hint:{'center_y':0.7,'center_x':0.5}
                         canvas.before:
                             Color:
-                                rgb: 0.8, 0.8, 1
+                                rgb: 0.9,0.9,0.9
                             Rectangle:
                                 pos: self.pos
                                 size: self.size
-
-                        Slider:
-                            canvas.before:
-                                Color:
-                                    rgb: 0,0.7,0.7,1
-                                Rectangle:
-                                    pos: self.pos
-                                    size: self.size
-                            size_hint:0.1,1
-                            pos_hint:{'top':1,'right':1}
-                            id: repeat_slider
-                            min: 0
-                            max: 1000
-                            step: 1
-                            on_value:app.repeat_slider()
-                            orientation: 'vertical'
-                        Label:
-                            id: repeat
-                            text:'REPEAT:'
-                            background_color: 1, 1, 1, 1
-                            color:0.2,0.2,0.6,1
-                            bold: True
-                            font_size: 20
-                            size_hint: 0.3,0.25
-                            pos_hint:{'top':0.9,'x':0}
-                            on_focus:
-                        Label:
-                            id: repeat_text
-                            background_color: 1, 0, 0, 1
-                            font_size: 20
-                            text:'0'
-                            color:0,0,0,1
-                            size_hint: 0.7,0.25
-                            pos_hint:{'top':0.9,'x':0.2}
-                            on_focus:
-                        BoxLayout:
-                            size_hint: 0.9,0.5
-                            pos_hint:{'center_y':0.3,'x':0}
-                            orientaion: 'horizontal'
-                            Button:
-                                text: 'INC'
-                                on_press: app.repeat_inc()
-
-                            Button:
-                                id:repeat_dec_button
-                                text:'DEC'
-                                on_press: app.repeat_dec()
+                        id: start_button
+                        text:'START'
+                        background_color: (0.5, 1, 0.5, 1)
+                        font_size: 30
+                        size_hint:1,1
+                        on_press :
+                            app.on_press_start(root.ids.status_bar, status_label)
+                    Button:
+                        id: start_button
+                        text:'STOP'
+                        background_color: (1, 0.5, 0.5, 1)
+                        size_hint:1,1
+                        font_size: 30
+                        on_press :
+                            app.on_press_stop(root.ids.status_bar, status_label)
 
 
-        Screen:
-            id:_myfile_screen
-            name:'myfile_screen'
-            FloatLayout:
-                size_hint:1,0.1
-                pos_hint:{'center_y':0.95,'x':0}
-                canvas.before:
-                    Color:
-                        rgb: 0.3, 1, 0.8
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0}
-                    size_hint: 0.09,None
-                    text:'File Name:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    id: _My_file_name
-                    font_size:18
-                    pos_hint:{'center_y':0.5,'x':0.1}
-                    size_hint: 1,None
-                    text_size: self.width, None
-                    text:'My File'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                    halign:"left"
-
-
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0.5}
-                    size_hint: None,None
-                    text:'Size:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    id: _My_file_size
-                    pos_hint:{'center_y':0.5,'x':0.55}
-                    size_hint:None,None
-                    text:'None'
-                    halign:"left"
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0.65}
-                    size_hint: None,None
-                    text:'hint:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-
-                Label:
-                    id: _My_file_hint
-                    pos_hint:{'center_y':0.5,'x':0.74}
-                    size_hint: 1,None
-                    text_size: self.width, None
-                    height: self.texture_size[1]
-                    text:'--'
-                    halign:"left"
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-
-            BoxLayout:
-                size_hint:0.55,0.9
-                pos_hint:{'top':0.9,'x':0}
-                FileChooserListView:
-                    color:1,1,1
-                    spacing:20
-                    canvas.before:
-                        Color:
-                            rgb: 0.2,0.2,0.2,1
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    id: filechooserSd
-                    color:0,0,0,1
-                    path: "D:\\"
-                    on_selection: app.view_selected_file(filechooserSd.path,filechooserSd.selection)
-
-            BoxLayout:
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint:0.25,0.9
-                pos_hint:{'top':0.9,'x':0.55}
-                orientation: 'vertical'
-                spacing:20
-                padding:20,20,20,20
-
-                Button:
-                    id: myfile_select_body
-                    font_size: 18
-                    background_color: (0.5, 0.3, 0.5, 1)
-                    text:'   SELECT \nBODY FILE'
-                    on_press: app.select_body_file(filechooserSd.path,filechooserSd.selection)
-                    on_release:
-
-
-                Button:
-                    id: myfile_select_border
-                    font_size: 18
-                    background_color: (0.5, 0.4, 0.3, 1)
-                    text:'    SELECT \nBORDER FILE'
-                    on_press:app.select_border_file(filechooserSd.path,filechooserSd.selection)
-                    on_release:
-
-
-                Button:
-                    id: myfile_select_merge
-                    font_size: 18
-                    background_color: (0.2, 0.4, 0.3, 1.0)
-                    text:'    SELECT \nMERGE FILE'
-                    on_press:app.select_merge_file(filechooserSd.path,filechooserSd.selection)
-                    on_release:
-
-
-
-
-            FloatLayout:
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint:0.2,0.9
-                pos_hint:{'top':0.9,'x':0.8}
-                orientation: 'vertical'
-                spacing:50
-                padding:20,50,20,50
-
-                Button:
-                    pos_hint:{'center_y':0.8,'center_x':0.5}
-                    id: myfile_copy
-                    size_hint: 1,0.2
-                    font_size: 16
-                    bold: True
-                    height: 10
-                    background_color: (0.5, 0.7, 0.5, 0.9)
-                    text:'COPY'
-                    on_press: app.on_press_myfile_copy()
-                    on_release:
-                        app.on_release_myfile_copy()
-                        root.file_copy(filechooserSd.path, filechooserSd.selection)
-
-                Button:
-                    id: myfile_paste
-                    pos_hint:{'center_y':0.6,'center_x':0.5}
-                    font_size: 16
-                    size_hint: 1,0.2
-                    background_color: (0.5, 0.4, 0.7, 0.9)
-                    text:'PASTE'
-                    on_press: app.on_press_myfile_paste()
-                    on_release:
-                        app.on_release_myfile_paste()
-                        root.file_paste(filechooserSd.path, filechooserSd.selection)
-
-                Button:
-                    id: myfile_view
-                    pos_hint:{'center_y':0.4,'center_x':0.5}
-                    font_size: 16
-                    size_hint: 1,0.2
-                    background_color: (0.3, 0.8, 0.8, 1.0)
-                    text:'VIEW'
-                    on_press: app.on_press_myfile_view()
-                    on_release:
-                        app.on_release_myfile_view()
-                        app.popup_view_file(filechooserSd.path, filechooserSd.selection)
-
-                Button:
-                    id: myfile_delete
-                    pos_hint:{'center_y':0.2,'center_x':0.5}
-                    size_hint: 1,0.2
-                    font_size: 16
-                    text:'DELETE'
-                    background_color: (1, 0.4, 0.4, 1.0)
-                    on_press: app.on_press_myfile_delete()
-                    on_release:
-                        app.on_release_myfile_delete()
-                        root.file_delete(filechooserSd.path, filechooserSd.selection)
-
-
-        Screen:
-            id:_usb_screen
-            name:'usb_screen'
-            id:usb_screen
-            FloatLayout:
-                size_hint:1,0.1
-                pos_hint:{'center_y':0.95,'x':0}
-                canvas.before:
-                    Color:
-                        rgb: 0.3, 1, 0.8
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0}
-                    size_hint: 0.09,None
-                    text:'File Name:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    id: _Usb_file_name
-                    font_size:18
-                    pos_hint:{'center_y':0.5,'x':0.1}
-                    size_hint: 1,None
-                    text_size: self.width, None
-                    text:'USB'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                    halign:"left"
-
-
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0.5}
-                    size_hint: None,None
-                    text:'Size:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    id: _Usb_file_size
-                    pos_hint:{'center_y':0.5,'x':0.55}
-                    size_hint:None,None
-                    text:'None'
-                    halign:"left"
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-                Label:
-                    pos_hint:{'center_y':0.5,'x':0.65}
-                    size_hint: None,None
-                    text:'hint:'
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-
-                Label:
-                    id: _Usb_file_hint
-                    pos_hint:{'center_y':0.5,'x':0.74}
-                    size_hint: None,None
-                    text_size: self.width, None
-                    height: self.texture_size[1]
-                    text:'--'
-                    halign:"left"
-                    color:0,0,0,1
-                    font_size:12
-                    bold:True
-
-
-            BoxLayout:
-                size_hint:0.8,0.9
-                pos_hint:{'top':0.9,'x':0}
-                FileChooserIconView:
-                    color:0.2,0.2,0.1
-                    canvas.before:
-                        Color:
-                            rgb: 0.2, 0.2, 0.2
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-                    id: filechooserUsb
-                    on_selection: app.view_selected_file(filechooserUsb.path,filechooserUsb.selection)
-                    path: "D:\\"
-            FloatLayout:
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint:0.2,0.9
-                pos_hint:{'top':0.9,'x':0.8}
-                orientation: 'vertical'
-                spacing:50
-                padding:20,50,20,50
-
-                Button:
-                    pos_hint:{'center_y':0.8,'center_x':0.5}
-                    id: usb_copy
-                    size_hint: 1,0.2
-                    font_size: 16
-                    bold: True
-                    height: 10
-                    background_color: (0.5, 0.7, 0.5, 0.9)
-                    text:'COPY'
-                    on_press: app.on_press_usb_copy()
-                    on_release:
-                        app.on_release_usb_copy()
-                        root.file_copy(filechooserUsb.path, filechooserUsb.selection)
-
-                Button:
-                    id: usb_paste
-                    pos_hint:{'center_y':0.6,'center_x':0.5}
-                    font_size: 16
-                    size_hint: 1,0.2
-                    background_color: (0.5, 0.4, 0.7, 0.9)
-                    text:'PASTE'
-                    on_press: app.on_press_usb_paste()
-                    on_release:
-                        app.on_release_usb_paste()
-                        root.file_paste(filechooserUsb.path, filechooserUsb.selection)
-
-
-                Button:
-                    id: usb_view
-                    pos_hint:{'center_y':0.4,'center_x':0.5}
-                    font_size: 16
-                    size_hint: 1,0.2
-                    background_color: (0.3, 0.8, 0.8, 1.0)
-                    text:'VIEW'
-                    on_press: app.on_press_usb_view()
-                    on_release:
-                        app.on_release_usb_view()
-                        app.popup_view_file(filechooserUsb.path, filechooserUsb.selection)
-
-                Button:
-                    id: usb_delete
-                    pos_hint:{'center_y':0.2,'center_x':0.5}
-                    size_hint: 1,0.2
-                    font_size: 16
-                    text:'DELETE'
-                    background_color: (1, 0.4, 0.4, 1.0)
-                    on_press: app.on_press_usb_delete()
-                    on_release:
-                        app.on_release_usb_delete()
-                        root.file_delete(filechooserUsb.path, filechooserUsb.selection)
-
-        Screen:
-            id:_view_screen
-            name: 'view_screen'
-            FloatLayout:
-                size_hint:0.7,0.5
-                pos_hint:{'y':0.5,'x':0.1}
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                TopImage:
-                    id: topimage
-                    size_hint:(1,0.5)
-                    pos_hint:{'y':0,'x':0}
-                    canvas.before:
-                        Color:
-                            rgba: 0.5, 1, 0.5,1
-                        Rectangle:
-                            texture: self.top_image
-                            size:self.top_texture_size
-                            pos: self.pos
-            FloatLayout:
-                size_hint:0.7,0.5
-                pos_hint:{'top':0.5,'x':0.1}
-                canvas.before:
-                    Color:
-                        rgb: 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                BotImage:
-                    id: botimage
-                    pos_hint:{'y':0,'x':0}
-                    canvas.before:
-                        Color:
-                            rgba: 1, 0.5, 0.5,1
-                        Rectangle:
-                            id:botrec
-                            texture: self.bot_image
-                            size:self.bot_texture_size
-                            pos: self.bot_texture_pos
-            Slider:
-                id: pick_slider
-                canvas.before:
-                    Color:
-                        rgb: 0,0.7,0.7,1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint:0.1,1
-                pos_hint:{'top':1,'x':0}
-                min: 0
-                max:100000
-                step: 1
-                value:0
-                on_value:app.pick_slider()
-                orientation: 'vertical'
-
-            BoxLayout:
-                size_hint:0.2,1
-                pos_hint:{'center_y':0.5,'right':1}
-                orientation:'vertical'
-                canvas.before:
-                    Color:
-                        rgb: 0.6, 0.8, 0.8
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
+    ########################## setting Screen ###################3
+            Screen:
+                id:_meno_screen
+                name:'meno_screen'
                 FloatLayout:
                     canvas.before:
                         Color:
-                            rgb: 0.4, 0.8, 0.8
+                            rgb: 1, 1, 1
                         Rectangle:
                             pos: self.pos
                             size: self.size
-                    size_hint:1,0.4
-                    pos_hint:{'top':0.8,'right':1}
+                    size_hint:1,1
+                    pos_hint:{'top':1,'x':0}
+                    FloatLayout:
+                        canvas.before:
+                            Color:
+                                rgb: 1, 1, 1
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        size_hint:0.3,1
+                        pos_hint:{'top':1,'x':0.025}
+                        orientation: 'vertical'
+                        spacing:50
+                        padding:20,50,20,50
+                        Label:
+                            pos_hint:{'top':1,'center_x':0.5}
+                            size_hint: 1,0.1
+                            font_size: 16
+                            text:'Mode Setting'
+                            color: 0.3,0.3,0,1
+                        Button:
+                            id: body_border_file
+                            pos_hint:{'center_y':0.7,'center_x':0.5}
+                            size_hint: 1,0.3
+                            font_size: 20
+                            bold: True
+                            color: 0.8,0.8,0.8,1
+                            height: 10
+                            background_color: (1, 0.4, 0.4, 1)
+                            text:'         MODE - I   \n( Body & Border File)'
+                            on_press: app.on_press_bodyborderfile()
+                            on_release:
+                        Button:
+                            id: merge_file
+                            pos_hint:{'center_y':0.25,'center_x':0.5}
+                            font_size: 20
+                            bold: True
+                            color: 0.8,0.8,0.8,1
+                            size_hint: 1,0.3
+                            background_color: (1, 0.4, 0.4, 1)
+                            text:'      MODE - II   \n( MERGE File )'
+                            on_press: app.on_press_mergefile()
+                            on_release:
+
+
+                    FloatLayout:
+                        canvas.before:
+                            Color:
+                                rgb: 1, 1, 1
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        size_hint:0.2,1
+                        pos_hint:{'top':1,'x':0.775}
+                        spacing:50
+                        padding:20,50,20,50
+                        Label:
+                            pos_hint:{'top':1,'center_x':0.5}
+                            size_hint: 1,0.1
+                            font_size: 16
+                            text:'Special Setting'
+                            color: 0.3,0.3,0,1
+                        Button:
+                            id: invert
+                            pos_hint:{'center_y':0.75,'center_x':0.5}
+                            size_hint: 1,0.25
+                            font_size: 13
+                            bold: True
+                            color: 0.8,0.8,0.8,1
+                            height: 10
+                            background_color: (1, 0.4, 0.4, 1)
+                            text:'INVERT OFF'
+                            on_press: app.on_press_invert()
+                            on_release:
+                        Button:
+                            id: reverse_row
+                            pos_hint:{'center_y':0.45,'center_x':0.5}
+                            size_hint: 1,0.25
+                            font_size: 13
+                            bold: True
+                            color: 0.8,0.8,0.8,1
+                            height: 10
+                            background_color: (1, 0.4, 0.4, 1)
+                            text:'REVERSE ROW OFF'
+                            on_press: app.on_press_reverse_row()
+                            on_release:
+                        Button:
+                            id: reverse_column
+                            pos_hint:{'center_y':0.15,'center_x':0.5}
+                            size_hint: 1,0.25
+                            font_size: 13
+                            bold: True
+                            color: 0.8,0.8,0.8,1
+                            height: 10
+                            background_color: (1, 0.4, 0.4, 1)
+                            text:'REVERSE ROW OFF'
+                            on_press: app.on_press_reverse_column()
+                            on_release:
+                    FloatLayout:
+                        canvas.before:
+                            Color:
+                                rgb: 1, 1, 1
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        size_hint:0.4,1
+                        pos_hint:{'top':1,'x':0.35}
+                        spacing:50
+                        padding:20,50,20,50
+
+                        Button:
+                            text:'Update'
+                            color:0.8,1,1,1
+                            font_size:30
+                            size_hint:0.7,0.3
+                            pos_hint:{'y':0.1,'center_x':0.5}
+                            background_color: (0.3, 0.8, 0.8, 1.0)
+                            on_press: app.update_settings()
+
+                        FloatLayout:
+                            size_hint: 1,0.4
+                            pos_hint:{'center_y':0.7,'center_x':0.5}
+                            canvas.before:
+                                Color:
+                                    rgb: 0.8, 0.8, 1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                            Slider:
+                                canvas.before:
+                                    Color:
+                                        rgb: 0,0.7,0.7,1
+                                    Rectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                size_hint:0.1,1
+                                pos_hint:{'top':1,'right':1}
+                                id: repeat_slider
+                                min: 0
+                                max: 1000
+                                step: 1
+                                on_value:app.repeat_slider()
+                                orientation: 'vertical'
+                            Label:
+                                id: repeat
+                                text:'REPEAT:'
+                                background_color: 1, 1, 1, 1
+                                color:0.2,0.2,0.6,1
+                                bold: True
+                                font_size: 13
+                                size_hint: 0.3,0.25
+                                pos_hint:{'top':0.9,'x':0}
+                                on_focus:
+                            Label:
+                                id: repeat_text
+                                background_color: 1, 0, 0, 1
+                                font_size: 18
+                                text:'0'
+                                color:0,0,0,1
+                                size_hint: 0.7,0.25
+                                pos_hint:{'top':0.9,'x':0.2}
+                                on_focus:
+                            BoxLayout:
+                                size_hint: 0.9,0.5
+                                pos_hint:{'center_y':0.3,'x':0}
+                                orientaion: 'horizontal'
+                                Button:
+                                    text: 'INC'
+                                    on_press: app.repeat_inc()
+
+                                Button:
+                                    id:repeat_dec_button
+                                    text:'DEC'
+                                    on_press: app.repeat_dec()
+
+
+            Screen:
+                id:_myfile_screen
+                name:'myfile_screen'
+                FloatLayout:
+                    size_hint:1,0.1
+                    pos_hint:{'center_y':0.95,'x':0}
+                    canvas.before:
+                        Color:
+                            rgb: 0.3, 1, 0.8
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    Label:
+                        pos_hint:{'center_y':0.5,'x':0}
+                        size_hint: 0.09,None
+                        text:'File Name:'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                    Label:
+                        id: _My_file_name
+                        font_size:18
+                        pos_hint:{'center_y':0.5,'x':0.1}
+                        size_hint: 1,None
+                        text_size: self.width, None
+                        text:'My File'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                        halign:"left"
+
+
+                    Label:
+                        pos_hint:{'center_y':0.5,'x':0.5}
+                        size_hint: None,None
+                        text:'Size:'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                    Label:
+                        id: _My_file_size
+                        pos_hint:{'center_y':0.5,'x':0.55}
+                        size_hint:None,None
+                        text:'None'
+                        halign:"left"
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                    Label:
+                        pos_hint:{'center_y':0.5,'x':0.65}
+                        size_hint: None,None
+                        text:'hint:'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+
+                    Label:
+                        id: _My_file_hint
+                        pos_hint:{'center_y':0.5,'x':0.74}
+                        size_hint: 1,None
+                        text_size: self.width, None
+                        height: self.texture_size[1]
+                        text:'--'
+                        halign:"left"
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+
+                BoxLayout:
+                    size_hint:0.55,0.9
+                    pos_hint:{'top':0.9,'x':0}
+                    FileChooserListView:
+                        color:1,1,1
+                        spacing:20
+                        canvas.before:
+                            Color:
+                                rgb: 0.2,0.2,0.2,1
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        id: filechooserSd
+                        color:0,0,0,1
+                        path: "D:\\"
+                        on_selection: app.view_selected_file(filechooserSd.path,filechooserSd.selection)
+
+                BoxLayout:
+                    canvas.before:
+                        Color:
+                            rgb: 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint:0.25,0.9
+                    pos_hint:{'top':0.9,'x':0.55}
+                    orientation: 'vertical'
+                    spacing:20
+                    padding:20,20,20,20
+
+                    Button:
+                        id: myfile_select_body
+                        font_size: 18
+                        background_color: (0.5, 0.3, 0.5, 1)
+                        text:'   SELECT \nBODY FILE'
+                        on_press: app.select_body_file(filechooserSd.path,filechooserSd.selection)
+                        on_release:
+
+
+                    Button:
+                        id: myfile_select_border
+                        font_size: 18
+                        background_color: (0.5, 0.4, 0.3, 1)
+                        text:'    SELECT \nBORDER FILE'
+                        on_press:app.select_border_file(filechooserSd.path,filechooserSd.selection)
+                        on_release:
+
+
+                    Button:
+                        id: myfile_select_merge
+                        font_size: 18
+                        background_color: (0.2, 0.4, 0.3, 1.0)
+                        text:'    SELECT \nMERGE FILE'
+                        on_press:app.select_merge_file(filechooserSd.path,filechooserSd.selection)
+                        on_release:
+
+
+
+
+                FloatLayout:
+                    canvas.before:
+                        Color:
+                            rgb: 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint:0.2,0.9
+                    pos_hint:{'top':0.9,'x':0.8}
                     orientation: 'vertical'
                     spacing:50
                     padding:20,50,20,50
-                    Label:
-                        text:'PICK:'
-                        background_color: 1, 1, 1, 1
-                        color:0.2,0.2,0.6,1
+
+                    Button:
+                        pos_hint:{'center_y':0.8,'center_x':0.5}
+                        id: myfile_copy
+                        size_hint: 1,0.2
+                        font_size: 16
                         bold: True
-                        size_hint: 0.4,0.25
-                        pos_hint:{'top':1,'x':0}
-                        font_size:20
+                        height: 10
+                        background_color: (0.5, 0.7, 0.5, 0.9)
+                        text:'COPY'
+                        on_press: app.on_press_myfile_copy()
+                        on_release:
+                            app.on_release_myfile_copy()
+                            root.file_copy(filechooserSd.path, filechooserSd.selection)
+
+                    Button:
+                        id: myfile_paste
+                        pos_hint:{'center_y':0.6,'center_x':0.5}
+                        font_size: 16
+                        size_hint: 1,0.2
+                        background_color: (0.5, 0.4, 0.7, 0.9)
+                        text:'PASTE'
+                        on_press: app.on_press_myfile_paste()
+                        on_release:
+                            app.on_release_myfile_paste()
+                            root.file_paste(filechooserSd.path, filechooserSd.selection)
+
+                    Button:
+                        id: myfile_view
+                        pos_hint:{'center_y':0.4,'center_x':0.5}
+                        font_size: 16
+                        size_hint: 1,0.2
+                        background_color: (0.3, 0.8, 0.8, 1.0)
+                        text:'VIEW'
+                        on_press: app.on_press_myfile_view()
+                        on_release:
+                            app.on_release_myfile_view()
+                            app.popup_view_file(filechooserSd.path, filechooserSd.selection)
+
+                    Button:
+                        id: myfile_delete
+                        pos_hint:{'center_y':0.2,'center_x':0.5}
+                        size_hint: 1,0.2
+                        font_size: 16
+                        text:'DELETE'
+                        background_color: (1, 0.4, 0.4, 1.0)
+                        on_press: app.on_press_myfile_delete()
+                        on_release:
+                            app.on_release_myfile_delete()
+                            root.file_delete(filechooserSd.path, filechooserSd.selection)
+
+
+            Screen:
+                id:_usb_screen
+                name:'usb_screen'
+                id:usb_screen
+                FloatLayout:
+                    size_hint:1,0.1
+                    pos_hint:{'center_y':0.95,'x':0}
+                    canvas.before:
+                        Color:
+                            rgb: 0.3, 1, 0.8
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
                     Label:
-                        id: pick_text
-                        background_color: 1, 0, 0, 1
-                        text:'0'
+                        pos_hint:{'center_y':0.5,'x':0}
+                        size_hint: 0.09,None
+                        text:'File Name:'
                         color:0,0,0,1
-                        size_hint: 1,0.25
-                        pos_hint:{'top':1,'x':0.2}
-                        font_size:20
-                    BoxLayout:
-                        size_hint: 1,0.5
-                        pos_hint:{'y':0,'center_x':0.5}
-                        orientaion: 'horizontal'
-                        Button:
-                            text: 'INC'
-                            on_release:  root.ids. View_Pick_Inc_BoxLayout.pick_inc()
-                        Button:
-                            text:'DEC'
-                            on_release:  root.ids. View_Pick_Inc_BoxLayout.pick_dec()
-
-                View_Pick_Inc_BoxLayout:
-                    id: View_Pick_Inc_BoxLayout
-                    size_hint: 1,0.6
-                    pos_hint:{'center_y':0.3,'center_x':0.5}
-                    orientation: 'vertical'
+                        font_size:12
+                        bold:True
                     Label:
-                        id: label_pick_inc_value
-                        text : "1"
-                        on_focus:
-                    Button:
-                        id:child_check
-                        text: '1'
-                        on_release:
-                            root.ids.label_pick_inc_value.text = '1'
-                            root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(1)
+                        id: _Usb_file_name
+                        font_size:18
+                        pos_hint:{'center_y':0.5,'x':0.1}
+                        size_hint: 1,None
+                        text_size: self.width, None
+                        text:'USB'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                        halign:"left"
+
+
+                    Label:
+                        pos_hint:{'center_y':0.5,'x':0.5}
+                        size_hint: None,None
+                        text:'Size:'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                    Label:
+                        id: _Usb_file_size
+                        pos_hint:{'center_y':0.5,'x':0.55}
+                        size_hint:None,None
+                        text:'None'
+                        halign:"left"
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+                    Label:
+                        pos_hint:{'center_y':0.5,'x':0.65}
+                        size_hint: None,None
+                        text:'hint:'
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+
+                    Label:
+                        id: _Usb_file_hint
+                        pos_hint:{'center_y':0.5,'x':0.74}
+                        size_hint: None,None
+                        text_size: self.width, None
+                        height: self.texture_size[1]
+                        text:'--'
+                        halign:"left"
+                        color:0,0,0,1
+                        font_size:12
+                        bold:True
+
+
+                BoxLayout:
+                    size_hint:0.8,0.9
+                    pos_hint:{'top':0.9,'x':0}
+                    FileChooserIconView:
+                        color:0.2,0.2,0.1
+                        canvas.before:
+                            Color:
+                                rgb: 0.2, 0.2, 0.2
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        id: filechooserUsb
+                        on_selection: app.view_selected_file(filechooserUsb.path,filechooserUsb.selection)
+                        path: "D:\\"
+                FloatLayout:
+                    canvas.before:
+                        Color:
+                            rgb: 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint:0.2,0.9
+                    pos_hint:{'top':0.9,'x':0.8}
+                    orientation: 'vertical'
+                    spacing:50
+                    padding:20,50,20,50
 
                     Button:
-                        text:'10'
+                        pos_hint:{'center_y':0.8,'center_x':0.5}
+                        id: usb_copy
+                        size_hint: 1,0.2
+                        font_size: 16
+                        bold: True
+                        height: 10
+                        background_color: (0.5, 0.7, 0.5, 0.9)
+                        text:'COPY'
+                        on_press: app.on_press_usb_copy()
                         on_release:
-                            root.ids.label_pick_inc_value.text = '10'
-                            root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(10)
-                            app.checkfun()
+                            app.on_release_usb_copy()
+                            root.file_copy(filechooserUsb.path, filechooserUsb.selection)
+
                     Button:
-                        text:'50'
+                        id: usb_paste
+                        pos_hint:{'center_y':0.6,'center_x':0.5}
+                        font_size: 16
+                        size_hint: 1,0.2
+                        background_color: (0.5, 0.4, 0.7, 0.9)
+                        text:'PASTE'
+                        on_press: app.on_press_usb_paste()
                         on_release:
-                            root.ids.label_pick_inc_value.text = '50'
-                            root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(50)
-                            app.checkfun()
+                            app.on_release_usb_paste()
+                            root.file_paste(filechooserUsb.path, filechooserUsb.selection)
+
+
                     Button:
-                        text:'100'
+                        id: usb_view
+                        pos_hint:{'center_y':0.4,'center_x':0.5}
+                        font_size: 16
+                        size_hint: 1,0.2
+                        background_color: (0.3, 0.8, 0.8, 1.0)
+                        text:'VIEW'
+                        on_press: app.on_press_usb_view()
                         on_release:
-                            root.ids.label_pick_inc_value.text = '100'
-                            root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(100)
-                            app.checkfun()
-        Screen:
-            id:_contact_screen
-            name:'contact_screen'
-            FloatLayout:
-                canvas:
+                            app.on_release_usb_view()
+                            app.popup_view_file(filechooserUsb.path, filechooserUsb.selection)
+
+                    Button:
+                        id: usb_delete
+                        pos_hint:{'center_y':0.2,'center_x':0.5}
+                        size_hint: 1,0.2
+                        font_size: 16
+                        text:'DELETE'
+                        background_color: (1, 0.4, 0.4, 1.0)
+                        on_press: app.on_press_usb_delete()
+                        on_release:
+                            app.on_release_usb_delete()
+                            root.file_delete(filechooserUsb.path, filechooserUsb.selection)
+
+            Screen:
+                id:_view_screen
+                name: 'view_screen'
+                FloatLayout:
+                    size_hint:0.7,0.5
+                    pos_hint:{'y':0.5,'x':0.1}
+                    canvas.before:
+                        Color:
+                            rgb: 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    TopImage:
+                        id: topimage
+                        size_hint:(1,0.5)
+                        pos_hint:{'y':0,'x':0}
+                        canvas.before:
+                            Color:
+                                rgba: 0.5, 1, 0.5,1
+                            Rectangle:
+                                texture: self.top_image
+                                size:self.top_texture_size
+                                pos: self.pos
+                FloatLayout:
+                    size_hint:0.7,0.5
+                    pos_hint:{'top':0.5,'x':0.1}
+                    canvas.before:
+                        Color:
+                            rgb: 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    BotImage:
+                        id: botimage
+                        pos_hint:{'y':0,'x':0}
+                        canvas.before:
+                            Color:
+                                rgba: 1, 0.5, 0.5,1
+                            Rectangle:
+                                id:botrec
+                                texture: self.bot_image
+                                size:self.bot_texture_size
+                                pos: self.bot_texture_pos
+                Slider:
+                    id: pick_slider
+                    canvas.before:
+                        Color:
+                            rgb: 0,0.7,0.7,1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    size_hint:0.1,1
+                    pos_hint:{'top':1,'x':0}
+                    min: 0
+                    max:100000
+                    step: 1
+                    value:0
+                    on_value:app.pick_slider()
+                    orientation: 'vertical'
+
+                BoxLayout:
+                    size_hint:0.2,1
+                    pos_hint:{'center_y':0.5,'right':1}
+                    orientation:'vertical'
+                    canvas.before:
+                        Color:
+                            rgb: 0.6, 0.8, 0.8
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    FloatLayout:
+                        canvas.before:
+                            Color:
+                                rgb: 0.4, 0.8, 0.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        size_hint:1,0.4
+                        pos_hint:{'top':0.8,'right':1}
+                        orientation: 'vertical'
+                        spacing:50
+                        padding:20,50,20,50
+                        Label:
+                            text:'PICK:'
+                            background_color: 1, 1, 1, 1
+                            color:0.2,0.2,0.6,1
+                            bold: True
+                            size_hint: 0.4,0.25
+                            pos_hint:{'top':1,'x':0}
+                            font_size:20
+                        Label:
+                            id: pick_text
+                            background_color: 1, 0, 0, 1
+                            text:'0'
+                            color:0,0,0,1
+                            size_hint: 1,0.25
+                            pos_hint:{'top':1,'x':0.2}
+                            font_size:20
+                        BoxLayout:
+                            size_hint: 1,0.5
+                            pos_hint:{'y':0,'center_x':0.5}
+                            orientaion: 'horizontal'
+                            Button:
+                                text: 'INC'
+                                on_release:  root.ids. View_Pick_Inc_BoxLayout.pick_inc()
+                            Button:
+                                text:'DEC'
+                                on_release:  root.ids. View_Pick_Inc_BoxLayout.pick_dec()
+
+                    View_Pick_Inc_BoxLayout:
+                        id: View_Pick_Inc_BoxLayout
+                        size_hint: 1,0.6
+                        pos_hint:{'center_y':0.3,'center_x':0.5}
+                        orientation: 'vertical'
+                        Label:
+                            id: label_pick_inc_value
+                            text : "1"
+                            on_focus:
+                        Button:
+                            id:child_check
+                            text: '1'
+                            on_release:
+                                root.ids.label_pick_inc_value.text = '1'
+                                root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(1)
+
+                        Button:
+                            text:'10'
+                            on_release:
+                                root.ids.label_pick_inc_value.text = '10'
+                                root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(10)
+                                app.checkfun()
+                        Button:
+                            text:'50'
+                            on_release:
+                                root.ids.label_pick_inc_value.text = '50'
+                                root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(50)
+                                app.checkfun()
+                        Button:
+                            text:'100'
+                            on_release:
+                                root.ids.label_pick_inc_value.text = '100'
+                                root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(100)
+                                app.checkfun()
+            Screen:
+                id:_contact_screen
+                name:'contact_screen'
+                FloatLayout:
+                    canvas:
+                        Color:
+                            rgb: 1,1,1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                canvas_boxlayout:
+                    orientation: 'vertical'
+                    pos_hint:{'top':1,'center_x':0.5}
+                    Label:
+                        text: 'Indu-Tech'
+                        font_size:30
+                        color:0,0,0,1
+                    Label:
+                        text: 'Kumar:   6381159577'
+                        color:0,0,0,1
+                        font_size:26
+
+        FloatLayout:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint:0.2,1
+                spacing: 10
+                padding:10,10,10,10
+                canvas.before:
                     Color:
-                        rgb: 1,1,1
+                        rgb: 0.9,0.7,0.9
                     Rectangle:
                         pos: self.pos
                         size: self.size
-            canvas_boxlayout:
-                orientation: 'vertical'
-                pos_hint:{'top':1,'center_x':0.5}
-                Label:
-                    text: 'Indu-Tech'
-                    font_size:30
-                    color:0,0,0,1
-                Label:
-                    text: 'Kumar:   6381159577'
-                    color:0,0,0,1
-                    font_size:26
+                Navigationbar:
+                    id:_home_button
+                    text:'Home'
+                    background_color : (1.0, 0.0, 0.0, 1.0)
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'home_screen'
+                    on_release:
+                        app.meno_press_highlight()
+                Navigationbar:
+                    id:_meno_button
+                    text:'Meno'
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'meno_screen'
+                    on_release:
+                        app.meno_press_highlight()
+                Navigationbar:
+                    id:_myfile_button
+                    text:'MyFile'
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'myfile_screen'
+                        filechooserSd._update_files()
+                    on_release:
+                        app.meno_press_highlight()
+                Navigationbar:
+                    id:_usb_button
+                    text:'USB'
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'usb_screen'
+                        filechooserUsb._update_files()
 
-    FloatLayout:
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint:1,0.13
-            spacing: 10
-            padding:10,10,10,10
-            canvas.before:
-                Color:
-                    rgb: 0.9,0.7,0.9
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            Navigationbar:
-                id:_home_button
-                text:'Home'
-                background_color : (1.0, 0.0, 0.0, 1.0)
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'home_screen'
-                on_release:
-                    app.meno_press_highlight()
-            Navigationbar:
-                id:_meno_button
-                text:'Meno'
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'meno_screen'
-                on_release:
-                    app.meno_press_highlight()
-            Navigationbar:
-                id:_myfile_button
-                text:'MyFile'
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'myfile_screen'
-                    filechooserSd._update_files()
-                on_release:
-                    app.meno_press_highlight()
-            Navigationbar:
-                id:_usb_button
-                text:'USB'
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'usb_screen'
-                    filechooserUsb._update_files()
+                    on_release:
+                        app.meno_press_highlight()
+                Navigationbar:
+                    id:_view_button
+                    text:'VIEW'
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'view_screen'
+                        app.meno_press_highlight()
+                    on_release:
+                        app.meno_press_highlight()
+                Navigationbar:
+                    id:_contact_button
+                    text:'Contact'
+                    on_press:
+                        app.meno_press_highlight_release()
+                        _screen_manager.current = 'contact_screen'
 
-                on_release:
-                    app.meno_press_highlight()
-            Navigationbar:
-                id:_view_button
-                text:'VIEW'
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'view_screen'
-                    app.meno_press_highlight()
-                on_release:
-                    app.meno_press_highlight()
-            Navigationbar:
-                id:_contact_button
-                text:'Contact'
-                on_press:
-                    app.meno_press_highlight_release()
-                    _screen_manager.current = 'contact_screen'
-
-                on_release:
-                    app.meno_press_highlight()
+                    on_release:
+                        app.meno_press_highlight()
 
 
 <PopUp>:
