@@ -23,7 +23,9 @@ from kivy.uix.widget import Widget
 from kivy.config import Config
 Config.set('graphics', 'width', '800')
 Config.set('graphics', 'height', '450')
-
+Config.set('graphics', 'borderless', 'True')
+Config.set('graphics', 'resizable', False)
+Config.set('graphics', 'fullscreen', 1)
 aio = Client('sankar87eee', 'aio_BcjL967yMztvxoZkHT1i5hdRrdsz')
 
 kivy.require('1.11.1')
@@ -195,7 +197,7 @@ class BotImage(Widget):
             bot_texture = Texture.create(size=(bot.shape[1], bot.shape[0]), colorfmt='rgb')
             bot_texture.blit_buffer(bot_img, colorfmt='rgb', bufferfmt='ubyte', size=(bot.shape[1], bot.shape[0]))
             self.bot_image = bot_texture
-            self.bot_texture_size = (bot.shape[1]*window_width/800*1,bot.shape[0]*window_height/800*1)
+            self.bot_texture_size = (bot.shape[1]*window_width/800*1,bot.shape[0]*window_height/480*1)
             self.bot_texture_pos = (self.pos[0], 240-self.bot_texture_size[1]+self.pos[1])
 
             print('PPPPPPPPPPPPPOOOOOOOOOOSSSSSSSSSSSS', self.height,self.size,'texture size',self.bot_texture_size,'type',type(self.pos[0]))
@@ -414,8 +416,6 @@ class Jacquaredgui(App):
             self.root.ids.invert.text = 'INVERT ON'
             self.root.ids.invert.background_color= (0.4, 1, 0.4, 1)
 
-    def on_touch_down(self):
-        pass
     
     def on_press_reverse_row(self):
 
@@ -661,10 +661,9 @@ class Jacquaredgui(App):
         print(JACQUARD_SETTING)
         self.on_start()
 
+
 def app_thread():
     Jacquaredgui().run()
-
-
 
 
 _IoT_thread = threading.Thread(target=IoT_thread)
