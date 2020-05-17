@@ -25,7 +25,7 @@ Config.set('graphics', 'width', '800')
 Config.set('graphics', 'height', '450')
 Config.set('graphics', 'borderless', 'True')
 Config.set('graphics', 'resizable', False)
-Config.set('graphics', 'fullscreen', 1)
+#Config.set('graphics', 'fullscreen', 1)
 aio = Client('sankar87eee', 'aio_BcjL967yMztvxoZkHT1i5hdRrdsz')
 
 kivy.require('1.11.1')
@@ -76,6 +76,7 @@ def Jacquard_Reverse_Column():
 def Jacquard_desing_view():
     global RUN_VIEW_ARRAY
     pass
+
 
 
 print(kivy.__version__)
@@ -292,6 +293,10 @@ class Jacquaredgui(App):
 
     def build(self):
         return Jacquared()
+
+    def on_stop(self):
+        from subprocess import call
+        call("sudo nohup shutdown -h now", shell=True)
 
     def initialization(self):
 
