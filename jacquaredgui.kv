@@ -3,8 +3,7 @@
 #:import Factory kivy.factory.Factory
 
 
-
-<Navigationbar@Button>
+<Navigationbar@Button>:
     font_size: 14
     height: 28
     background_color: (0.97, 0.4, 0.7, 1.0)
@@ -128,6 +127,7 @@
                                 font_size:18
                                 text:'Current PICK'
                             Label:
+                                id:current_pick
                                 pos_hint:{'x':0.1,'center_y':0.5}
                                 font_size:18
                                 text:'000'
@@ -175,6 +175,7 @@
                                 font_size:18
                                 text:'Current Repeat'
                             Label:
+                                id:current_repeat
                                 pos_hint:{'x':0.1,'center_y':0.5}
                                 font_size:18
                                 text:'000'
@@ -325,15 +326,15 @@
                             on_press: app.on_press_bodyborderfile()
                             on_release:
                         Button:
-                            id: merge_file
+                            id: normal_file
                             pos_hint:{'center_y':0.25,'center_x':0.5}
                             font_size: 20
                             bold: True
                             color: 0.8,0.8,0.8,1
                             size_hint: 1,0.3
                             background_color: (1, 0.4, 0.4, 1)
-                            text:'      MODE - II   \n( MERGE File )'
-                            on_press: app.on_press_mergefile()
+                            text:'      MODE - II   \n( Normal File )'
+                            on_press: app.on_press_normalfile()
                             on_release:
 
 
@@ -404,6 +405,7 @@
 
                         Button:
                             text:'Update'
+                            id:update_button
                             color:0.8,1,1,1
                             font_size:30
                             size_hint:0.7,0.3
@@ -460,6 +462,7 @@
                                 pos_hint:{'center_y':0.3,'x':0}
                                 orientaion: 'horizontal'
                                 Button:
+                                    id:repeat_inc_button
                                     text: 'INC'
                                     on_press: app.repeat_inc()
 
@@ -540,7 +543,7 @@
                 BoxLayout:
                     size_hint:0.55,0.9
                     pos_hint:{'top':0.9,'x':0}
-                    FileChooserListView:
+                    FileChooserIconView:
                         color:1,1,1
                         spacing:20
                         canvas.before:
@@ -551,7 +554,8 @@
                                 size: self.size
                         id: filechooserSd
                         color:0,0,0,1
-                        path: "/home/pi/bmsapp/myfile/"
+                        
+                        rootpath: "/home/pi/Jacquarad_rasberrypi/MyFile"
                         on_selection: app.view_selected_file(filechooserSd.path,filechooserSd.selection)
 
                 BoxLayout:
@@ -586,11 +590,11 @@
 
 
                     Button:
-                        id: myfile_select_merge
+                        id: myfile_select_normal
                         font_size: 18
                         background_color: (0.2, 0.4, 0.3, 1.0)
-                        text:'    SELECT \nMERGE FILE'
-                        on_press:app.select_merge_file(filechooserSd.path,filechooserSd.selection)
+                        text:'    SELECT \nnormal FILE'
+                        on_press:app.select_normal_file(filechooserSd.path,filechooserSd.selection)
                         on_release:
 
 
@@ -813,7 +817,7 @@
                 name: 'view_screen'
                 FloatLayout:
                     size_hint:0.7,0.5
-                    pos_hint:{'y':0.5,'x':0.1}
+                    pos_hint:{'y':0.5,'x':0.06}
                     canvas.before:
                         Color:
                             rgb: 1, 1, 1
@@ -822,7 +826,7 @@
                             size: self.size
                     TopImage:
                         id: topimage
-                        size_hint:(1,0.5)
+                        size_hint:(1,0)
                         pos_hint:{'y':0,'x':0}
                         canvas.before:
                             Color:
@@ -833,7 +837,7 @@
                                 pos: self.pos
                 FloatLayout:
                     size_hint:0.7,0.5
-                    pos_hint:{'top':0.5,'x':0.1}
+                    pos_hint:{'top':0.5,'x':0.06}
                     canvas.before:
                         Color:
                             rgb: 1, 1, 1
@@ -859,10 +863,10 @@
                         Rectangle:
                             pos: self.pos
                             size: self.size
-                    size_hint:0.1,1
+                    size_hint:0.05,1
                     pos_hint:{'top':1,'x':0}
                     min: 0
-                    max:100000
+                    max:50000
                     step: 1
                     value:0
                     on_value:app.pick_slider()
@@ -938,19 +942,19 @@
                             on_release:
                                 root.ids.label_pick_inc_value.text = '10'
                                 root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(10)
-                                app.checkfun()
+                                
                         Button:
                             text:'50'
                             on_release:
                                 root.ids.label_pick_inc_value.text = '50'
                                 root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(50)
-                                app.checkfun()
+                                
                         Button:
                             text:'100'
                             on_release:
                                 root.ids.label_pick_inc_value.text = '100'
                                 root.ids. View_Pick_Inc_BoxLayout.pic_inc_value(100)
-                                app.checkfun()
+                                
             Screen:
                 id:_contact_screen
                 name:'contact_screen'
@@ -961,9 +965,10 @@
                         Rectangle:
                             pos: self.pos
                             size: self.size
-                canvas_boxlayout:
+                BoxLayout:
                     orientation: 'vertical'
                     pos_hint:{'top':1,'center_x':0.5}
+                    size_hint:1,0.35
                     Label:
                         text: 'Indu-Tech'
                         font_size:30
@@ -972,7 +977,36 @@
                         text: 'Kumar:   6381159577'
                         color:0,0,0,1
                         font_size:26
-
+                        
+                Slider:
+                    canvas.before:
+                        Color:
+                            rgb: 0,0.7,0.7,1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    orientation:'horizontal'
+                    size_hint:0.5,0.1
+                    pos_hint:{'center_x':0.5,'top':0.5}
+                    id: brightness_slider
+                    min: 0
+                    max: 100
+                    on_value:app.brightness_slider(self.value)
+                BoxLayout:
+                    pos_hint:{'center_x':0.5,'top':0.59}
+                    size_hint:1,0.1
+                    Label:
+                        text:'Brightness Control'
+                        pos_hint:{'top':1,'center_x':0.5}
+                        font_size:18
+                        color:0,0,0,1
+                Button:
+                    text:'ShutDown'
+                    font_size:29
+                    pos_hint:{'center_x':0.5,'y':0.05}
+                    size_hint:0.4,0.25
+                    background_color: (1, 0.3, 0.3, 1.0)
+                    on_release:app.stop()
         FloatLayout:
             BoxLayout:
                 orientation: 'vertical'
